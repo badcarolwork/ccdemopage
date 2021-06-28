@@ -7,15 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
     <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
-    <script>
-        window.googletag = window.googletag || { cmd: [] };
-        googletag.cmd.push(function () {
-            googletag.defineSlot('/21669303496/1x1_test_0624', [1, 1], 'div-gpt-ad-1624856441101-0').addService(googletag.pubads());
-            googletag.pubads().enableSingleRequest();
-            googletag.enableServices();
-        });
-    </script>
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <title>cc demo page</title>
@@ -51,13 +42,18 @@
                                     <small><a href="#" title="">by Matilda</a></small>
                                 </div><!-- end meta -->
                             </div><!-- end blog-box -->
-                            <!-- /21669303496/0622_test_320480 -->
-                            <!-- /21669303496/1x1_test_0624 -->
-                            <div id='div-gpt-ad-1624856441101-0'>
+                            <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+                            <div id="gpt-passback">
                                 <script>
-                                    googletag.cmd.push(function () { googletag.display('div-gpt-ad-1624856441101-0'); });
+                                    window.googletag = window.googletag || { cmd: [] };
+                                    googletag.cmd.push(function () {
+                                        googletag.defineSlot('/21669303496/1x1_test_0624', [1, 1], 'gpt-passback').addService(googletag.pubads());
+                                        googletag.enableServices();
+                                        googletag.display('gpt-passback');
+                                    });
                                 </script>
                             </div>
+
 
                             <hr class="invis">
 
