@@ -1,7 +1,5 @@
-let adDone = false;
-if (!adDone) {
-  document.body.onload = addPixel;
-}
+
+document.body.onload = addPixel;
 
 function addPixel() {
   const pixelDiv = document.createElement("div");
