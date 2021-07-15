@@ -15,37 +15,35 @@ function addPixel() {
   window.parent.document.body.append(script);
 
   //append banner
+
+  var headJs = document.createElement("script");
+  headJs.src = "https://securepubads.g.doubleclick.net/tag/js/gpt.js";
+  var headJsFunc = document.createElement("script");
+
+  var headJstext = `
+  window.googletag = window.googletag || {cmd: []};
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/21669303496/cctest_fs_414260', [414, 260], 'div-gpt-ad-1626335725009-0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+  });`
+
+  headJsFunc.append(headJstext)
+  window.parent.document.head.append(headJs);
+  window.parent.document.head.append(headJsFunc);
+
   var bannerDiv = document.createElement("div");
   bannerDiv.setAttribute("id", "pfx_banner");
   bannerDiv.setAttribute(
     "style",
     "position:fixed;left:0;z-index:999999;bottom:0;width:100%;height:100%;max-height:260px;display:none;"
   );
-  var headJs = document.createElement("script");
-  headJs.src = "https://securepubads.g.doubleclick.net/tag/js/gpt.js";
-  var headJsFunc = document.createElement("script");
-
-  var headJstext = `
-    window.googletag = window.googletag || {cmd: []};
-    googletag.cmd.push(function() {
-      googletag.defineOutOfPageSlot('/21669303496/cctest_fs_414260', 'div-gpt-ad-1626330545517-0').addService(googletag.pubads());
-      googletag.pubads().enableSingleRequest();
-      googletag.enableServices();
-    });`
-
-  headJsFunc.append(headJstext)
-  window.parent.document.head.append(headJs);
-  window.parent.document.head.append(headJsFunc);
-
-  bannerDiv.innerHTML += `
-  <div id='div-gpt-ad-1626330545517-0' style="width:100%;height:260px;>
+  bannerDiv.innerHTML += `<div id='div-gpt-ad-1626335725009-0' style='min-width: 414px; min-height: 260px;'>
     <script>
-      googletag.cmd.push(function() { googletag.display('div-gpt-ad-1626330545517-0'); });
+      googletag.cmd.push(function() { googletag.display('div-gpt-ad-1626335725009-0'); });
     </script>
   </div>`;
 
   window.parent.document.body.append(bannerDiv);
-  // bannerDiv.append(bannerDivJsContent)
-
   return;
 }
