@@ -9,7 +9,7 @@ function addPixel() {
   );
 
   var script = document.createElement("script");
-  script.src = "https://s0.2mdn.net/creatives/assets/4201742/cmserving_func.js";
+  script.src = "https://badcarolwork.github.io/ccdemopage/demoad/cmserving_func.js";
   window.parent.document.body.append(pixelDiv);
 
   window.parent.document.body.append(script);
