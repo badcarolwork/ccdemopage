@@ -37,7 +37,7 @@ function addPixel() {
   window.parent.document.head.append(headJs);
   window.parent.document.head.append(headJsFunc);
 
-  bannerDiv.innerHTML = `
+  bannerDiv.innerHTML += `
   <div id='div-gpt-ad-1626330545517-0' style="width:100%;height:260px;>
     <script>
       googletag.cmd.push(function() { googletag.display('div-gpt-ad-1626330545517-0'); });
