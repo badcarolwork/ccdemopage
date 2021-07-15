@@ -1,11 +1,9 @@
 
 document.body.onload = addPixel;
-let adDone = false;
+var adDone = false;
 
 function addPixel() {
-  if (adDone)
-    return;
-  const pixelDiv = document.createElement("div");
+  var pixelDiv = document.createElement("div");
   pixelDiv.setAttribute("id", "pfx_pixel");
   pixelDiv.setAttribute(
     "style",
