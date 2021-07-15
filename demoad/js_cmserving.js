@@ -1,7 +1,10 @@
 
 document.body.onload = addPixel;
+let adDone = false;
 
 function addPixel() {
+  if (adDone)
+    return;
   const pixelDiv = document.createElement("div");
   pixelDiv.setAttribute("id", "pfx_pixel");
   pixelDiv.setAttribute(
@@ -47,4 +50,5 @@ function addPixel() {
 
   window.parent.document.body.append(bannerDiv);
   adDone = true;
+
 }
