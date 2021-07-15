@@ -47,4 +47,5 @@ function addPixel() {
   window.parent.document.body.append(bannerDiv);
   // bannerDiv.append(bannerDivJsContent)
 
+  return;
 }
