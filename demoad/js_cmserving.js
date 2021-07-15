@@ -1,4 +1,7 @@
-document.body.onload = addPixel;
+let adDone = false;
+if (!adDone) {
+  document.body.onload = addPixel;
+}
 
 function addPixel() {
   const pixelDiv = document.createElement("div");
@@ -45,5 +48,5 @@ function addPixel() {
   </div>`;
 
   window.parent.document.body.append(bannerDiv);
-  return;
+  adDone = true;
 }
