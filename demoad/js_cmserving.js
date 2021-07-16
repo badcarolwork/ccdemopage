@@ -35,8 +35,7 @@ function addPixel() {
   headJsFunc.append(headJstext)
   window.parent.document.head.append(headJs);
   window.parent.document.head.append(headJsFunc);
-
-  adDone = true;
+  // adDone = true;
   if (adDone) {
     expand();
   }
