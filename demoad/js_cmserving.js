@@ -50,7 +50,7 @@ function addPixel() {
     </script>
   </div>`;
     window.parent.document.body.append(bannerDiv);
-
+    expand()
   }
 
 }
