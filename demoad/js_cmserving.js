@@ -12,11 +12,11 @@ function addPixel() {
     "background-color:red;width:1px;height:1px;position:absolute;top:0;left:0;"
   );
 
-  // var script = document.createElement("script");
-  // script.src = "https://badcarolwork.github.io/ccdemopage/demoad/cmserving_func.js";
+  var script = document.createElement("script");
+  script.src = "https://badcarolwork.github.io/ccdemopage/demoad/cmserving_func.js";
   window.parent.document.body.append(pixelDiv);
 
-  // window.parent.document.body.append(script);
+  window.parent.document.body.append(script);
 
   //append banner
 
