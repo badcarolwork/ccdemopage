@@ -1,4 +1,4 @@
-
+var expanded = false;
 var pixel = document.getElementById('pfx_pixel');
 var banner = document.getElementById('pfx_banner');
 

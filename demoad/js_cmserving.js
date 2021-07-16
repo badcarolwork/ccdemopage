@@ -1,5 +1,4 @@
 (function () {
-  var expanded = false;
 
   function addPixel() {
     var pixelDiv = document.createElement("div");
