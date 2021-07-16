@@ -1,7 +1,7 @@
 var adDone = false;
 var expanded = false;
 if (!adDone) {
-  addPixel();
+  window.onload = addPixel();
 }
 
 function addPixel() {
