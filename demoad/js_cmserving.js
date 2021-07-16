@@ -1,7 +1,16 @@
 var adDone = false;
 var expanded = false;
+userHasScrolled = false;
+
 if (!adDone) {
   window.onload = addPixel();
+  window.onscroll = function (e) {
+    userHasScrolled = true;
+    if (userHasScrolled) {
+      showBanner();
+      userHasScrolled = false;
+    }
+  }
 }
 
 function addPixel() {
@@ -35,24 +44,7 @@ function addPixel() {
   headJsFunc.append(headJstext)
   window.parent.document.head.append(headJs);
   window.parent.document.head.append(headJsFunc);
-  adDone = true;
 
-  if (adDone) {
-    var pixel = document.getElementById('pfx_pixel');
-    if (!pixel) {
-      setTimeout(() => {
-        bannerappend()
-      }, 500);
-    } else {
-      console.log("detect pixel")
-      bannerappend()
-    }
-
-  }
-}
-
-function bannerappend() {
-  var pixel = document.getElementById('pfx_pixel');
   var bannerDiv = document.createElement("div");
   bannerDiv.setAttribute("id", "pfx_banner");
   bannerDiv.setAttribute(
@@ -65,15 +57,12 @@ function bannerappend() {
     </script>
   </div>`;
   window.parent.document.body.append(bannerDiv);
+}
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!expanded && !entry.isIntersecting) {
-        banner.style.display = "block";
-        // googletag.cmd.push(function () { googletag.pubads().refresh(); });
-        expanded = true;
-      }
-    });
-  }, {});
-  observer.observe(pixel);
+
+
+function showBanner() {
+  banner.style.display = "block";
+  googletag.cmd.push(function () { googletag.pubads().refresh(); });
+
 }
