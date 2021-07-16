@@ -50,20 +50,18 @@ function addPixel() {
     </script>
   </div>`;
     window.parent.document.body.append(bannerDiv);
-    expand()
+    var pixel = document.getElementById('pfx_pixel');
+    if (!pixel) {
+      window.setTimeout(expand, 500);
+      return;
+    }
   }
 
 }
 
 function expand() {
   var expanded = false;
-  var pixel = document.getElementById('pfx_pixel');
   var banner = document.getElementById('pfx_banner');
-
-  if (!pixel) {
-    window.setTimeout(expand, 500);
-    return;
-  }
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (!expanded && !entry.isIntersecting) {
