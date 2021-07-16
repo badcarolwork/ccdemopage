@@ -1,6 +1,4 @@
 var adDone = false;
-var expanded = false;
-userHasScrolled = false;
 
 function addPixel() {
   var pixelDiv = document.createElement("div");
