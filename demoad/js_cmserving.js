@@ -61,7 +61,7 @@ function expand() {
   var banner = document.getElementById('pfx_banner');
 
   if (!pixel) {
-    window.setTimeout(addObserverIfDesiredNodeAvailable, 500);
+    window.setTimeout(expand, 500);
     return;
   }
   const observer = new IntersectionObserver((entries) => {
