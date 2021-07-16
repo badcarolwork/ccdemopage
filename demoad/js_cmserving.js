@@ -59,6 +59,11 @@ function expand() {
   var expanded = false;
   var pixel = document.getElementById('pfx_pixel');
   var banner = document.getElementById('pfx_banner');
+
+  if (!pixel) {
+    window.setTimeout(addObserverIfDesiredNodeAvailable, 500);
+    return;
+  }
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (!expanded && !entry.isIntersecting) {
