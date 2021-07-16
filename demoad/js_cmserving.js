@@ -51,5 +51,6 @@ function addPixel() {
 
   window.parent.document.body.append(bannerDiv);
   adDone = true;
+  console.log(adDone)
 
 }
