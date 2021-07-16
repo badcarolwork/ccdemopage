@@ -38,7 +38,7 @@ function addPixel() {
   adDone = true;
 
   if (adDone) {
-
+    var pixel = document.getElementById('pfx_pixel');
     var bannerDiv = document.createElement("div");
     bannerDiv.setAttribute("id", "pfx_banner");
     bannerDiv.setAttribute(
@@ -51,8 +51,7 @@ function addPixel() {
     </script>
   </div>`;
     window.parent.document.body.append(bannerDiv);
-    var pixel = document.getElementById('pfx_pixel');
-    var banner = document.getElementById('pfx_banner');
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (!expanded && !entry.isIntersecting) {
@@ -62,7 +61,12 @@ function addPixel() {
         }
       });
     }, {});
-    observer.observe(pixel);
+
+    if (pixel) {
+      observer.observe(pixel);
+    } else {
+      console.log("no detect pixel")
+    }
 
   }
 }
