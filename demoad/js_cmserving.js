@@ -62,6 +62,7 @@ function addPixel() {
 function expand() {
   var expanded = false;
   var banner = document.getElementById('pfx_banner');
+  var pixel = document.getElementById('pfx_pixel');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (!expanded && !entry.isIntersecting) {
