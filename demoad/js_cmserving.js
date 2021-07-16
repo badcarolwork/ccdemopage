@@ -1,5 +1,5 @@
 var adDone = false;
-
+var expanded = false;
 if (!adDone) {
   addPixel();
 }
@@ -51,18 +51,17 @@ function addPixel() {
   </div>`;
     window.parent.document.body.append(bannerDiv);
     var pixel = document.getElementById('pfx_pixel');
-    if (!pixel) {
-      window.setTimeout(expand, 500);
-      return;
+    if (pixel) {
+      expand()
+      observer.observe(pixel);
     }
   }
 
 }
 
 function expand() {
-  var expanded = false;
+
   var banner = document.getElementById('pfx_banner');
-  var pixel = document.getElementById('pfx_pixel');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (!expanded && !entry.isIntersecting) {
@@ -73,5 +72,4 @@ function expand() {
     });
   }, {});
 
-  observer.observe(pixel);
 }
