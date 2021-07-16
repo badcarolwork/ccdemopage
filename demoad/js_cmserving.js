@@ -38,8 +38,7 @@ function addPixel() {
   adDone = true;
 
   if (adDone) {
-
-
+    var pixel = document.getElementById('pfx_pixel');
     if (!pixel) {
       setTimeout(() => {
         bannerappend()
