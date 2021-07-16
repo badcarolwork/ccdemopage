@@ -36,6 +36,7 @@ function addPixel() {
   window.parent.document.head.append(headJs);
   window.parent.document.head.append(headJsFunc);
   adDone = true;
+
   if (adDone) {
 
     var bannerDiv = document.createElement("div");
@@ -51,24 +52,19 @@ function addPixel() {
   </div>`;
     window.parent.document.body.append(bannerDiv);
     var pixel = document.getElementById('pfx_pixel');
+
     if (pixel) {
-      expand(pixel)
+      var banner = document.getElementById('pfx_banner');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!expanded && !entry.isIntersecting) {
+            banner.style.display = "block";
+            googletag.cmd.push(function () { googletag.pubads().refresh(); });
+            expanded = true;
+          }
+        });
+      }, {});
+      observer.observe(pixel);
     }
   }
-
-}
-
-function expand(pixel) {
-  var banner = document.getElementById('pfx_banner');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!expanded && !entry.isIntersecting) {
-        banner.style.display = "block";
-        googletag.cmd.push(function () { googletag.pubads().refresh(); });
-        expanded = true;
-      }
-    });
-  }, {});
-  observer.observe(pixel);
-
 }
