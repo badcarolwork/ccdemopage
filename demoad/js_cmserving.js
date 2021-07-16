@@ -30,6 +30,8 @@ function addPixel() {
   window.parent.document.head.append(headJs);
   window.parent.document.head.append(headJsFunc);
 
+  expandBanner();
+
 }
 
 var expanded = false;
