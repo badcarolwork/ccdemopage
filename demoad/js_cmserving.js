@@ -52,15 +52,13 @@ function addPixel() {
     window.parent.document.body.append(bannerDiv);
     var pixel = document.getElementById('pfx_pixel');
     if (pixel) {
-      expand()
-      observer.observe(pixel);
+      expand(pixel)
     }
   }
 
 }
 
-function expand() {
-
+function expand(pixel) {
   var banner = document.getElementById('pfx_banner');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -71,5 +69,6 @@ function expand() {
       }
     });
   }, {});
+  observer.observe(pixel);
 
 }
