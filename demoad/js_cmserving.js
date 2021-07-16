@@ -2,17 +2,6 @@ var adDone = false;
 var expanded = false;
 userHasScrolled = false;
 
-if (!adDone) {
-  window.onload = addPixel();
-  window.onscroll = function (e) {
-    userHasScrolled = true;
-    if (userHasScrolled) {
-      showBanner();
-      userHasScrolled = false;
-    }
-  }
-}
-
 function addPixel() {
   var pixelDiv = document.createElement("div");
   pixelDiv.setAttribute("id", "pfx_pixel");
@@ -23,11 +12,9 @@ function addPixel() {
 
   // var script = document.createElement("script");
   // script.src = "https://badcarolwork.github.io/ccdemopage/demoad/cmserving_func.js";
+  // window.parent.document.body.append(script);
   window.parent.document.body.append(pixelDiv);
 
-  // window.parent.document.body.append(script);
-
-  //append banner
 
   var headJs = document.createElement("script");
   headJs.src = "https://securepubads.g.doubleclick.net/tag/js/gpt.js";
@@ -59,10 +46,11 @@ function addPixel() {
   window.parent.document.body.append(bannerDiv);
 }
 
-
-
 function showBanner() {
   banner.style.display = "block";
   googletag.cmd.push(function () { googletag.pubads().refresh(); });
 
 }
+
+window.addEventListener("scroll", () => { console.log("scroll") })
+window.addEventListener("load", () => { addPixel() })
