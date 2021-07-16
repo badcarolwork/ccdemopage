@@ -1,4 +1,8 @@
 var adDone = false;
+var expanded = false;
+if (!adDone) {
+  addPixel();
+}
 
 function addPixel() {
   var pixelDiv = document.createElement("div");
@@ -10,18 +14,21 @@ function addPixel() {
 
   // var script = document.createElement("script");
   // script.src = "https://badcarolwork.github.io/ccdemopage/demoad/cmserving_func.js";
-  // window.parent.document.body.append(script);
   window.parent.document.body.append(pixelDiv);
 
+  // window.parent.document.body.append(script);
+
+  //append banner
 
   var headJs = document.createElement("script");
   headJs.src = "https://securepubads.g.doubleclick.net/tag/js/gpt.js";
   var headJsFunc = document.createElement("script");
 
-  var headJstext = `window.googletag = window.googletag || {cmd: []};
-  var adSlot1;
- googletag.cmd.push(function() {
-  adSlot1 = googletag.defineSlot('/21669303496/cctest_fs_414260', [414, 260], 'div-gpt-ad-1626335725009-0').setTargeting('test', 'refresh').addService(googletag.pubads());
+  var headJstext = `
+  window.googletag = window.googletag || {cmd: []};
+  var adslot1;
+  googletag.cmd.push(function() {
+    adslot1 = googletag.defineSlot('/21669303496/cctest_fs_414260', [414, 260], 'div-gpt-ad-1626335725009-0').setTargeting('test', 'refresh').addService(googletag.pubads());
     googletag.pubads().enableSingleRequest();
     googletag.enableServices();
   });`
@@ -30,39 +37,34 @@ function addPixel() {
   window.parent.document.head.append(headJs);
   window.parent.document.head.append(headJsFunc);
 
-  expandBanner();
-
-}
-
-var expanded = false;
-
-function expandBanner() {
-  //append banner
   var bannerDiv = document.createElement("div");
   bannerDiv.setAttribute("id", "pfx_banner");
   bannerDiv.setAttribute(
     "style",
-    "position:fixed;left:0;z-index:999999;bottom:0;width:100%;height:100%;max-height:260px;"
+    "position:fixed;left:0;z-index:999999;bottom:0;width:100%;height:100%;max-height:260px;display:none;"
   );
+  bannerDiv.innerHTML += `<div id='div-gpt-ad-1626335725009-0' style='min-width: 414px; min-height: 260px;'>
+    <script>
+      googletag.cmd.push(function() { googletag.display('div-gpt-ad-1626335725009-0'); });
+    </script>
+  </div>`;
+  window.parent.document.body.append(bannerDiv);
 
-
-  bannerDiv.innerHTML += `<div id="div-for-slot" style="width: 100%; min-height:180px;height:100%;">googletag.cmd.push(function() {
-      googletag.display('div-gpt-ad-1626335725009-0');
-    });</div>`;
-
-}
-function showBanner() {
-  // var pixel = document.getElementById('pfx_pixel');
+  var pixel = document.getElementById('pfx_pixel');
   var banner = document.getElementById('pfx_banner');
-  banner.style.display = "block";
-  googletag.cmd.push(function () { googletag.pubads().refresh([adSlot1]); });
-  expanded = true;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!expanded && !entry.isIntersecting) {
+        banner.style.display = "block";
+        googletag.cmd.push(function () {
+          googletag.pubads().refresh([adslot1]);
+        });
+        expanded = true;
+      }
+    });
+  }, {});
+  observer.observe(pixel);
+
+
+
 }
-
-window.addEventListener("scroll", () => {
-  if (!expanded) {
-    showBanner()
-  }
-})
-
-window.addEventListener("load", () => { addPixel() })
