@@ -38,7 +38,7 @@
       "style",
       "position:fixed;left:0;z-index:999999;bottom:0;width:100%;height:100%;max-height:260px;display:none;"
     );
-    bannerDiv.innerHTML += `<div id='div-gpt-ad-1626672521294-0' style='min-width: 320px; min-height: 200px;'>
+    bannerDiv.innerHTML += `<div id='div-gpt-ad-1626672521294-0' style='min-width: 320px; min-height: 200px;width:100%;height:auto;'>
     <script>
       googletag.cmd.push(function() { googletag.display('div-gpt-ad-1626672521294-0'); });
       document.getElementById("[id^='google_ads_iframe_/21669303496/']).setAttribute("style","width:100%;min-height:200px;height:auto;");
