@@ -41,6 +41,7 @@
     bannerDiv.innerHTML += `<div id='div-gpt-ad-1626672521294-0' style='min-width: 320px; min-height: 200px;'>
     <script>
       googletag.cmd.push(function() { googletag.display('div-gpt-ad-1626672521294-0'); });
+      document.getElementById("[id^='google_ads_iframe_/21669303496/']).setAttribute("style","width:100%;min-height:200px;height:auto;");
     </script>
   </div>`;
     window.parent.document.body.append(bannerDiv);
