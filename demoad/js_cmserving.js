@@ -23,7 +23,7 @@
     var headJstext = `window.googletag = window.googletag || {cmd: []};
     var adslot1;
     googletag.cmd.push(function() {
-    adslot1 = googletag.defineSlot('/21669303496/cctest_fs_414260', [[360, 226], [320, 200], [414, 260], [375, 236], [411, 258], [280, 176]], 'div-gpt-ad-1626433422678-0').setTargeting('test', 'refresh').addService(googletag.pubads());
+    adslot1 = googletag.defineSlot('/21669303496/cctest_fs_414260', [414, 260], 'div-gpt-ad-1626670013334-0').setTargeting('test', 'refresh').addService(googletag.pubads());
     googletag.pubads().enableSingleRequest();
     googletag.enableServices();
   });`
