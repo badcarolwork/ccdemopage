@@ -33,8 +33,4 @@ function closeMsg(){
 			alert('Message from iframe just came!');		
 		  console.log(e);
 	});
-
-
-
-
-
+}
