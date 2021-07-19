@@ -23,7 +23,7 @@
     var headJstext = `window.googletag = window.googletag || {cmd: []};
     var adslot1;
     googletag.cmd.push(function() {
-    adslot1 = googletag.defineSlot('/21669303496/cctest_fs_414260', [414, 260], 'div-gpt-ad-1626670013334-0').setTargeting('test', 'refresh').addService(googletag.pubads());
+    adslot1 = googletag.defineSlot('/21669303496/cctest_fs_414260', [414, 260], 'div-gpt-ad-1626672521294-0').setTargeting('test', 'refresh').addService(googletag.pubads());
     googletag.pubads().enableSingleRequest();
     googletag.enableServices();
   });`
@@ -38,9 +38,9 @@
       "style",
       "position:fixed;left:0;z-index:999999;bottom:0;width:100%;height:100%;max-height:260px;display:none;"
     );
-    bannerDiv.innerHTML += `<div id='div-gpt-ad-1626335725009-0' style='min-width: 414px; min-height: 260px;'>
+    bannerDiv.innerHTML += `<div id='div-gpt-ad-1626672521294-0' style='min-width: 414px; min-height: 260px;'>
     <script>
-      googletag.cmd.push(function() { googletag.display('div-gpt-ad-1626335725009-0'); });
+      googletag.cmd.push(function() { googletag.display('div-gpt-ad-1626672521294-0'); });
     </script>
   </div>`;
     window.parent.document.body.append(bannerDiv);
