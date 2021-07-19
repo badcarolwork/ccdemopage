@@ -14,6 +14,27 @@ const observer = new IntersectionObserver((entries) => {
 
 
 observer.observe(pixel);
+closeMsg();
+
+
+function closeMsg(){
+  var eventMethod = window.addEventListener
+			? "addEventListener"
+			: "attachEvent";
+	var eventer = window[eventMethod];
+	var messageEvent = eventMethod === "attachEvent"
+		? "onmessage"
+		: "message";
+
+	eventer(messageEvent, function (e) {
+		
+		// if (e.origin !== 'http://the-trusted-iframe-origin.com') return;
+		
+		if (e.data === "userClose" || e.message === "userClose") 
+			alert('Message from iframe just came!');		
+		  console.log(e);
+	});
+}
 
 
 
