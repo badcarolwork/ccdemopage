@@ -38,7 +38,7 @@
       "style",
       "position:fixed;left:0;z-index:999999;bottom:0;width:100%;height:100%;max-height:260px;display:none;"
     );
-    bannerDiv.innerHTML += `<div id='div-gpt-ad-1626672521294-0' style='min-width: 414px; min-height: 260px;'>
+    bannerDiv.innerHTML += `<div id='div-gpt-ad-1626672521294-0' style='min-width: 320px; min-height: 200px;'>
     <script>
       googletag.cmd.push(function() { googletag.display('div-gpt-ad-1626672521294-0'); });
     </script>
