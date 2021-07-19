@@ -8,13 +8,14 @@ const observer = new IntersectionObserver((entries) => {
       banner.style.display = "block";
       googletag.cmd.push(function () { googletag.pubads().refresh([adslot1]); });
       expanded = true;
+      closeMsg();
     }
   });
 }, {});
 
 
 observer.observe(pixel);
-closeMsg();
+
 
 
 function closeMsg(){
@@ -26,15 +27,13 @@ function closeMsg(){
 		? "onmessage"
 		: "message";
 
-	eventer(messageEvent, function (e) {
-		
-		// if (e.origin !== 'http://the-trusted-iframe-origin.com') return;
-		
+	eventer(messageEvent, function (e) {		
+		// if (e.origin !== 'http://the-trusted-iframe-origin.com') return;		
 		if (e.data === "userClose" || e.message === "userClose") 
 			alert('Message from iframe just came!');		
 		  console.log(e);
 	});
-}
+
 
 
 
