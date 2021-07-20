@@ -26,7 +26,7 @@ Basic video setting:
  */
   var Lp_url =
     basic_url || "https://www.google.com/";
-  var videoCssLink = "video_panel.css"; //Choose the right type of video css
+  var videoCssLink = "https://badcarolwork.github.io/ccdemopage/demoad/video_panel.css"; //Choose the right type of video css
 
   /*
   Resources setting:
