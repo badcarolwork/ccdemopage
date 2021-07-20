@@ -8,7 +8,6 @@ const observer = new IntersectionObserver((entries) => {
 			banner.style.display = "block";
 			googletag.cmd.push(function () { googletag.pubads().refresh([adslot1]); });
 			expanded = true;
-			closeMsg();
 		}
 	});
 }, {});
