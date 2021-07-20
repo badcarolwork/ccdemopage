@@ -23,7 +23,11 @@
     var headJstext = `window.googletag = window.googletag || {cmd: []};
     var adslot1;
     googletag.cmd.push(function() {
-    adslot1 = googletag.defineSlot('/21669303496/cctest_fs_414260', [414, 260], 'div-gpt-ad-1626672521294-0').setTargeting('test', 'refresh').addService(googletag.pubads());
+    var mapping = googletag.sizeMapping()
+    .addSize([414, 736], [[414, 260])
+    .addSize([375, 667], [[375, 236]])
+    .build();
+    adslot1 = googletag.defineSlot('/21669303496/cctest_fs_414260', [414, 260], 'div-gpt-ad-1626672521294-0').defineSizeMapping(mapping).setTargeting('test', 'refresh').addService(googletag.pubads());
     googletag.pubads().enableSingleRequest();
     googletag.enableServices();
   });`
