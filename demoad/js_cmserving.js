@@ -23,11 +23,19 @@
     var headJstext = `window.googletag = window.googletag || {cmd: []};
     var adslot1;
     googletag.cmd.push(function() {
-    var mapping = googletag.sizeMapping().addSize([414, 736], [414, 260]).addSize([375, 667], [375, 236]).build();
     adslot1 = googletag.defineSlot('/21669303496/cctest_fs_414260', [414, 260], 'div-gpt-ad-1626672521294-0').defineSizeMapping(mapping).setTargeting('test', 'refresh').addService(googletag.pubads());
     googletag.pubads().enableSingleRequest();
     googletag.enableServices();
   });`
+
+    // var headJstext = `window.googletag = window.googletag || {cmd: []};
+    //   var adslot1;
+    //   googletag.cmd.push(function() {
+    //   var mapping = googletag.sizeMapping().addSize([414, 736], [414, 260]).addSize([375, 667], [375, 236]).build();
+    //   adslot1 = googletag.defineSlot('/21669303496/cctest_fs_414260', [414, 260], 'div-gpt-ad-1626672521294-0').defineSizeMapping(mapping).setTargeting('test', 'refresh').addService(googletag.pubads());
+    //   googletag.pubads().enableSingleRequest();
+    //   googletag.enableServices();
+    // });`
 
     headJsFunc.append(headJstext)
     window.parent.document.head.append(headJs);
@@ -35,10 +43,7 @@
 
     var bannerDiv = document.createElement("div");
     bannerDiv.setAttribute("id", "pfx_banner");
-    bannerDiv.setAttribute(
-      "style",
-      "position:fixed;left:0;z-index:999999;bottom:0;width:100%;height:100%;max-height:260px;display:none;"
-    );
+    bannerDiv.setAttribute("style", "position:fixed;left:0;z-index:999999;bottom:0;width:100%;height:100%;max-height:260px;display:none;");
     bannerDiv.innerHTML += `<div id='div-gpt-ad-1626672521294-0' style='min-width: 320px; min-height: 200px;width:100%;height:auto;'>
     <script>
       googletag.cmd.push(function() { googletag.display('div-gpt-ad-1626672521294-0'); });
