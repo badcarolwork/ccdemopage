@@ -23,8 +23,7 @@
         googletag.defineSlot('/21669303496/cctest_fs_414260', [1, 1], 'div-gpt-ad-1628655025326-0').addService(googletag.pubads());
         googletag.pubads().enableSingleRequest();
         googletag.enableServices();
-      });
-    </script>`
+      });`
 
     headJsFunc.append(headJstext)
     window.parent.document.head.append(headJsFunc);
