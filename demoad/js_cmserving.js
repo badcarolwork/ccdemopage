@@ -22,7 +22,7 @@
     var adslot1;
     googletag.cmd.push(function() {
     adslot1 = googletag.defineSlot('/21669303496/cctest_fs_414260', [1, 1], 'div-gpt-ad-1628655025326-0').setTargeting('test', 'refresh').addService(googletag.pubads());
-    googletag.pubads().enableSingleRequest();
+    googletag.pubads().disableInitialLoad();
     googletag.enableServices();
   });`
 
