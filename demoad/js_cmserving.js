@@ -15,9 +15,6 @@
     window.parent.document.body.append(script);
 
     //append banner
-
-    var headJs = document.createElement("script");
-    headJs.src = "https://securepubads.g.doubleclick.net/tag/js/gpt.js";
     var headJsFunc = document.createElement("script");
 
     var headJstext = `window.googletag = window.googletag || {cmd: []};
