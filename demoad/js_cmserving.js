@@ -19,12 +19,9 @@
     var headJsFunc = document.createElement("script");
 
     var headJstext = `window.googletag = window.googletag || {cmd: []};
-    var adslot1;
     googletag.cmd.push(function() {
-    adslot1 = googletag.defineSlot('/21669303496/cctest_fs_414260', [1, 1], 'div-gpt-ad-1628655025326-0').setTargeting('test', 'event').addService(googletag.pubads());
-    googletag.pubads().disableInitialLoad();
-    googletag.enableServices();
-  });`
+      googletag.defineSlot('/21669303496/cctest_fs_414260', [1, 1], 'div-gpt-ad-1628655025326-0').addService(googletag.pubads());
+    googletag.enableServices();});`
 
     headJsFunc.append(headJstext)
     window.parent.document.head.append(headJsFunc);
@@ -32,11 +29,7 @@
     var bannerDiv = document.createElement("div");
     bannerDiv.setAttribute("id", "pfx_banner");
     bannerDiv.setAttribute("style", "position:fixed;left:0;z-index:999999;bottom:0;width:100%;height:100%;max-height:260px;display:none;");
-    bannerDiv.innerHTML += `<div id='div-gpt-ad-1628498031248-0'>
-    <script>
-    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1628655025326-0'); });
-    </script>
-  </div>`;
+    bannerDiv.innerHTML += `<div id='div-gpt-ad-1628498031248-0'><script>googletag.cmd.push(function() { googletag.display('div-gpt-ad-1628655025326-0'); });</script></div>`;
     window.parent.document.body.append(bannerDiv);
   }
 

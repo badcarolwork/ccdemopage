@@ -6,7 +6,7 @@ const observer = new IntersectionObserver((entries) => {
 	entries.forEach((entry) => {
 		if (!expanded && !entry.isIntersecting) {
 			banner.style.display = "block";
-			googletag.cmd.push(function () { googletag.pubads().refresh([adslot1]); });
+			// googletag.cmd.push(function () { googletag.pubads().refresh([adslot1]); });
 			expanded = true;
 		}
 	});
