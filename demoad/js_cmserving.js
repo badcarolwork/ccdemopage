@@ -15,7 +15,8 @@
     window.parent.document.body.append(script);
 
     //append banner
-    var headJstext = document.createElement("script");
+
+    var headJsFunc = document.createElement("script");
 
     var headJstext = `window.googletag = window.googletag || {cmd: []};
     var adslot1;
@@ -26,7 +27,6 @@
   });`
 
     headJsFunc.append(headJstext)
-    window.parent.document.head.append(headJs);
     window.parent.document.head.append(headJsFunc);
 
     var bannerDiv = document.createElement("div");
