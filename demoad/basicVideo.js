@@ -96,7 +96,7 @@ Tracking setting:
     ];
 
     var html =
-      '<video id="video-1" autoplay="" playsinline webkit-playsinline muted src=""><source src="">' +
+      '<video id="video-1" playsinline webkit-playsinline muted src=""><source src="">' +
       "</video>";
     if (!Array.isArray) {
       Array.isArray = function (arg) {

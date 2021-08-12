@@ -64,6 +64,8 @@
         integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
+        $('#mainContainer').hide();
+        document.getElementById('video-1').pause();
         const searchbody = $('#mainContainer').closest('body');
         const arrFrames = parent.document.getElementsByTagName("IFRAME");
         for (let i = 0; i < arrFrames.length; i++) {
@@ -95,7 +97,7 @@
                         if (!isExpanded && !entry.isIntersecting) {
                             isVisible = false;
                             isExpanded = true; 
-                            window.parent.visibleSatus(isVisible);
+                            document.querySelector('iframe[id*="cctest_fs_414260"]').contentWindow.visibleSatus(isVisible);
                         }
                     });
                     clearInterval(isPixel);
@@ -113,13 +115,13 @@
         window.parent.document.body.append(pfxfunc);
 
 
-
-
-        function visibleSatus(visibleSatus) {
-            if (!visibleSatus) {
-                console.log("pixel not visible")
+        function visibleSatus(getstatus) {
+            if (!getstatus) {
+                $('#mainContainer').show();
+                document.getElementById('video-1').play();
+                console.log("pixel visible")
             } else {
-                document.querySelector("video").pause();
+                document.getElementById('video-1').pause();
                 console.log("pixel visible")
             }
         }
