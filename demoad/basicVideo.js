@@ -221,11 +221,11 @@ Tracking setting:
 
     if (videoM.dom.vid.readyState >= 2) {
       videoM.dom.playBtn.style.display = "none";
-      startMuted(null);
+      // startMuted(null);
     } else {
       videoM.dom.vid.hasCanPlay = false;
       videoM.dom.playBtn.style.display = "none";
-      // videoM.dom.vid.addEventListener("canplay", startMuted, false);
+      videoM.dom.vid.addEventListener("canplay", startMuted, false);
     }
     // alert('show');
   }
