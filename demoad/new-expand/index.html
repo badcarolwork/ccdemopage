@@ -18,6 +18,8 @@
             right: 0;
             margin: auto;
             z-index: 300;
+            min-height: 200px;
+            max-height: 260px;
         }
 
         #featureBox img {
@@ -62,23 +64,67 @@
         integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-
-
-        var arrFrames = parent.document.getElementsByTagName("IFRAME");
-        for (var i = 0; i < arrFrames.length; i++) {
-            if (arrFrames[i].contentWindow === window) {
-                console.log("yay!" + arrFrames[i].id);
+        const searchbody = $('#mainContainer').closest('body');
+        const arrFrames = parent.document.getElementsByTagName("IFRAME");
+        for (let i = 0; i < arrFrames.length; i++) {
+            if ($(arrFrames[i].contentWindow.document.body).is(searchbody)) {
                 arrFrames[i].style.width = "100%";
-                arrFrames[i].style.height = "100%";
-
+                arrFrames[i].style.minHeight = "36vh";
+                arrFrames[i].parentNode.parentNode.style.position = "fixed";
+                arrFrames[i].parentNode.parentNode.style.width = "100%";
+                arrFrames[i].parentNode.parentNode.style.bottom = "0";
+                arrFrames[i].parentNode.parentNode.style.left = "0";
             }
         }
-        document.getElementById("close_banner").addEventListener("click", function () {
-            document.getElementById("mainContainer").remove();
-            Enabler.counter("close_banner");
-            window.parent.postMessage("userClose", "*")
-            console.log("close")
-        });
+
+
+        const pixelDiv = document.createElement("div");
+        pixelDiv.setAttribute("id", "pfx_pixel");
+        pixelDiv.setAttribute(
+            "style",
+            "background-color:red;width:1px;height:1px;position:absolute;top:30vh;left:0;"
+        );
+
+        const pfxfunc = document.createElement("script");
+        pfxfunc.innerHTML = `let isVisible = true, isExpanded = false;
+        let isPixel = setInterval(() => {
+            if (document.getElementById("pfx_pixel")) {
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (!isExpanded && !entry.isIntersecting) {
+                            isVisible = false;
+                            isExpanded = true; 
+                            window.parent.visibleSatus(isVisible);
+                        }
+                    });
+                    clearInterval(isPixel);
+                }, {});
+
+                observer.observe(document.getElementById("pfx_pixel"));
+
+                if (isExpanded) {
+                    observer.unobserve(document.getElementById("pfx_pixel"));
+                }                 
+            }
+        }, 300);`
+
+        window.parent.document.body.append(pixelDiv);
+        window.parent.document.body.append(pfxfunc);
+
+
+
+
+        function visibleSatus(visibleSatus) {
+            if (!visibleSatus) {
+                console.log("pixel not visible")
+            } else {
+                document.querySelector("video").pause();
+                console.log("pixel visible")
+            }
+        }
+
+
     </script>
 </body>
 

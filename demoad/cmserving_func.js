@@ -1,6 +1,6 @@
 var expanded = false;
 var pixel = document.getElementById('pfx_pixel');
-var banner = document.getElementById('pfx_banner');
+var banner = document.getElementById('');
 
 const observer = new IntersectionObserver((entries) => {
 	entries.forEach((entry) => {
