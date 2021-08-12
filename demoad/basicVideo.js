@@ -225,7 +225,7 @@ Tracking setting:
     } else {
       videoM.dom.vid.hasCanPlay = false;
       videoM.dom.playBtn.style.display = "none";
-      videoM.dom.vid.addEventListener("canplay", startMuted, false);
+      // videoM.dom.vid.addEventListener("canplay", startMuted, false);
     }
     // alert('show');
   }
